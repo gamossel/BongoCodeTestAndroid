@@ -76,7 +76,7 @@ public class VehicleTest {
 	}
 
 	/*
-	 * Answer-b: Factory method design pattern will be used
+	 * Answer-b: Builder pattern will be used
 	 * 
 	 */
 	public static class CarUsingBuilderPatten {
