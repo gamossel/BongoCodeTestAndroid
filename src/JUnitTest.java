@@ -17,32 +17,60 @@ public class JUnitTest {
 	
 	@Test
 	public void testCarUsingBuilderPatternOnSuccessCase() {
+		int numOfWheels = 4;
+		int numOfPassengers = 5;
+		boolean hasGas = false;
+		
+		VehicleTest.CarUsingBuilderPatten car = new VehicleTest.CarUsingBuilderPatten.Builder().withTotalWheels(numOfWheels).withPassengerMaxCapacity(numOfPassengers)
+				.withGasEngine(hasGas).build();
+		
+		
+		assertEquals(numOfWheels, car.getNumOfWheels());
+		assertEquals(numOfPassengers, car.getNumOfPassengers());
+		assertEquals(hasGas, car.hasGas());
 
-		VehicleTest.CarUsingBuilderPatten car = new VehicleTest.CarUsingBuilderPatten.Builder().withTotalWheels(4).withPassengerMaxCapacity(5)
-				.withGasEngine(false).build();
-		assertEquals("Car using 4 wheels, 5 passengers and will run in gas false", car.run());
 	}
 	
 	@Test
 	public void testPlaneUsingBuilderPatternSuccessCase() {
-		VehicleTest.PlaneUsingBuilderPatten plane = new VehicleTest.PlaneUsingBuilderPatten.Builder().withTotalWheels(18)
-				.withPassengerMaxCapacity(200).withGasEngine(true).build();
-		assertEquals("Plane using 18 wheels, 200 passengers and will run in gas true", plane.run());
+		int numOfWheels = 18;
+		int numOfPassengers = 200;
+		boolean hasGas = true;
+		
+		VehicleTest.PlaneUsingBuilderPatten plane = new VehicleTest.PlaneUsingBuilderPatten.Builder().withTotalWheels(numOfWheels)
+				.withPassengerMaxCapacity(numOfPassengers).withGasEngine(true).build();
+		
+		assertEquals(numOfWheels, plane.getNumOfWheels());
+		assertEquals(numOfPassengers, plane.getNumOfPassengers());
+		assertEquals(hasGas, plane.hasGas());
 	}
 	
 	@Test
 	public void testCarUsingBuilderPatternOnFailCase() {
-
+		int numOfWheels = 4;
+		int numOfPassengers = 5;
+		boolean hasGas = false;
+		
 		VehicleTest.CarUsingBuilderPatten car = new VehicleTest.CarUsingBuilderPatten.Builder().withTotalWheels(4).withPassengerMaxCapacity(5)
 				.withGasEngine(false).build();
-		assertNotEquals("Car using 2 wheels, 6 passengers and will run in gas false", car.run());
+		
+		assertNotEquals(50, car.getNumOfWheels());
+		assertNotEquals(20, car.getNumOfPassengers());
+		assertNotEquals(true, car.hasGas());
 	}
 	
 	@Test
 	public void testPlaneUsingBuilderPatternOnFailCase() {
+		int numOfWheels = 18;
+		int numOfPassengers = 200;
+		boolean hasGas = true;
+		
 		VehicleTest.PlaneUsingBuilderPatten plane = new VehicleTest.PlaneUsingBuilderPatten.Builder().withTotalWheels(18)
 				.withPassengerMaxCapacity(200).withGasEngine(true).build();
-		assertNotEquals("Plane using 17 wheels, 200 passengers and will run in gas false", plane.run());
+		
+		assertNotEquals(50, plane.getNumOfWheels());
+		assertNotEquals(20, plane.getNumOfPassengers());
+		assertNotEquals(false, plane.hasGas());
 	}
 	
 	@Test

@@ -8,11 +8,11 @@ public class VehicleTest {
 
 		CarUsingBuilderPatten bCar = new CarUsingBuilderPatten.Builder().withTotalWheels(4).withPassengerMaxCapacity(5)
 				.withGasEngine(false).build();
-		System.out.println(bCar.run());
-
+		bCar.run();
+		
 		PlaneUsingBuilderPatten bPlane = new PlaneUsingBuilderPatten.Builder().withTotalWheels(18)
 				.withPassengerMaxCapacity(200).withGasEngine(true).build();
-		System.out.println(bPlane.run());
+		bPlane.run();
 	}
 
 	/*
@@ -121,9 +121,21 @@ public class VehicleTest {
 			}
 		}
 
-		public String run() {
-			return String.format("Car using %d wheels, %d passengers and will run in gas %b", numOfWheels,
-					numOfPassengers, willRunInGas);
+		public void run() {
+			System.out.println(String.format("Car using %d wheels, %d passengers and will run in gas %b", numOfWheels,
+					numOfPassengers, willRunInGas));
+		}
+		
+		public int getNumOfWheels() {
+			return numOfWheels;
+		}
+		
+		public int getNumOfPassengers() {
+			return numOfPassengers;
+		}
+		
+		public boolean hasGas() {
+			return willRunInGas;
 		}
 	}
 
@@ -169,9 +181,21 @@ public class VehicleTest {
 			}
 		}
 
-		public String run() {
-			return String.format("Plane using %d wheels, %d passengers and will run in gas %b", numOfWheels,
-					numOfPassengers, willRunInGas);
+		public void run() {
+			System.out.println(String.format("Plane using %d wheels, %d passengers and will run in gas %b", numOfWheels,
+					numOfPassengers, willRunInGas));
+		}
+		
+		public int getNumOfWheels() {
+			return numOfWheels;
+		}
+		
+		public int getNumOfPassengers() {
+			return numOfPassengers;
+		}
+		
+		public boolean hasGas() {
+			return willRunInGas;
 		}
 	}
 }
